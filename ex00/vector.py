@@ -9,6 +9,23 @@
 class Vector:
     def __init__(self, data):
         self.data = data
+        
+    def __len__(self):
+        return len(self.data)
+    
+    def __getitem__(self, index):
+        return self.data[index]
+
+    def __iter__(self):
+        return iter(self.data)
+    
+    def __str__(self):
+        return str(self.data)
+    
+    def __mul__(self, scalar):
+        if not isinstance(scalar, (int, float)):
+            raise TypeError("Scalar must be a numeric value.")
+        return Vector([x * scalar for x in self.data])
 
     def add(self, other):
         if len(self.data) != len(other.data):

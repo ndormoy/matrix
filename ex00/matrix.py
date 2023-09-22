@@ -26,3 +26,8 @@ class Matrix:
 
     def __str__(self):
         return '\n'.join([' '.join(map(str, row)) for row in self.data])
+    
+    def __truediv__(self, scalar):
+        if scalar == 0:
+            raise ValueError("Division by zero is not allowed.")
+        return Matrix([[x / scalar for x in row] for row in self.data])
