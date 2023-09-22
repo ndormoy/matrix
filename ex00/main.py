@@ -36,7 +36,7 @@ def main():
     except ValueError as err:
         print(err)
     
-    print("\nHas to fail : ")
+    colorize_text("\nHas to fail : ", "red")
     try:
         w =  Vector([2.0, 3.0, 4.0])
         u.add(w)
@@ -73,7 +73,7 @@ def main():
     except ValueError as err:
         print(err)
         
-    print("\nHas to fail : ")
+    colorize_text("\nHas to fail : ", "red")
     try:
         w =  Matrix([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
         u.add(w)

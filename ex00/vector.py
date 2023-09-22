@@ -22,6 +22,7 @@ class Vector:
 
     def scl(self, scalar):
         self.data = [x * scalar for x in self.data]
+        # return Vector([x * scalar for x in self.data])
 
     def __str__(self):
         return str(self.data)
