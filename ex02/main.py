@@ -55,7 +55,7 @@ def main():
     except Exception as e:
         print(e)
 
-    # colorize_text("\n================================\n", "cyan")
+    colorize_text("\n================================\n", "cyan")
 
 if __name__ == '__main__':
     main()

@@ -41,5 +41,10 @@ class Vector:
         self.data = [x * scalar for x in self.data]
         # return Vector([x * scalar for x in self.data])
 
-    def __str__(self):
-        return str(self.data)
+    def dot(self, other):
+        if len(self.data) != len(other.data):
+            raise ValueError("Vector dimensions do not match.")
+        # Check if all elements in both vectors are of type float
+        if not all(isinstance(x, float) for x in self.data) or not all(isinstance(x, float) for x in other.data):
+            raise ValueError("All elements in both vectors must be of type float.")
+        return sum(x * y for x, y in zip(self.data, other.data))
