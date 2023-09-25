@@ -23,6 +23,15 @@ def main():
 
     except Exception as e:
         print(e)
+        
+    colorize_text("\nHas to fail : ", "red")
+    try:
+        u4 = Matrix([[-2.0, -8.0, 4.0], [1.0, -23.0, 4.0], [0.0, 6.0, 4.0], [4.0, 2.0, 9.0]])
+        print(u4.trace())
+        
+       
+    except Exception as e:
+        print(e)
 
     colorize_text("\n================================\n", "cyan")
 

@@ -71,3 +71,8 @@ class Matrix:
         if len(self.data) != len(self.data[0]):
             raise ValueError("Matrix must be square to calculate trace.")
         return sum(self.data[i][i] for i in range(len(self.data)))
+
+    # https://www.cuemath.com/algebra/transpose-of-a-matrix/
+    # The transpose of a matrix is a new matrix whose rows are the columns of the original.
+    def transpose(self):
+        return Matrix([[self.data[j][i] for j in range(len(self.data))] for i in range(len(self.data[0]))])
