@@ -1,7 +1,5 @@
 import sys
 import os.path
-# from matrix_mult import mul_vec
-# from matrix_mult import mul_mat
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from utils.color import colorize_text

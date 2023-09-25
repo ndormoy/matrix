@@ -22,7 +22,22 @@ def waiting_bar(iterations, delay=0.01):
     sys.stdout.write('\r\033[K')  # ANSI escape code to clear the line
     sys.stdout.flush()
 
+def ascii_art():
+    ascii_art = r"""
+     ___      ___       __      ___________    _______     __      ___  ___  
+    |"  \    /"  |     /""\    ("     _   ")  /"      \   |" \    |"  \\/" | 
+    \    \  //   |    /    \    )__/  \\__/  |:        |  ||  |    \   \  /  
+    /\\   \/.    |   / '/\' \      \_  /     |_____/   )  |:  |     \\  \/   
+    |: \.        |  //  __'  \     |.  |      //      /   |.  |     /\.  \   
+    |.  \    /:  | /   /  \\  \    \:  |     |:  __   \   /\  |\   /  \   \  
+    |___|\__/|___|(___/    \___)    \__|     |__|  \___) (__\_|_) |___/\___| 
+    """
+
+    print(ascii_art)
+
+
 def main():
+    ascii_art()
     sys.stdout.write("loading [...]")
     sys.stdout.flush()
     num_iterations = 50
