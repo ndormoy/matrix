@@ -9,8 +9,8 @@ from linear_combination import linear_combination
 
 
 def main():
-    colorize_text("EXERCICE 01\n", "green")
-    colorize_text("Linear combination for VECTOR\n", "purple")
+    colorize_text("EXERCICE 01 : Linear combination\n", "green")
+    colorize_text("VECTOR\n", "purple")
     
     try:
         # Define vectors
