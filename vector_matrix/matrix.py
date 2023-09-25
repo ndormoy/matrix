@@ -83,6 +83,8 @@ class Matrix:
         return (len(self.data), len(self.data[0]))
     
     """
+        https://www.wikihow.com/Reduce-a-Matrix-to-Row-Echelon-Form
+        https://saturncloud.io/blog/reducing-a-matrix-to-row-echelon-form-using-numpy-a-comprehensive-guide/
         Row echelon form :
         - Leading Entries: In each row of the matrix, the first nonzero element (from the left) is called a "leading entry," and it must be strictly to the right of the leading entry in the row just above it.
         - Zero Rows: Any rows consisting entirely of zeros are placed at the bottom of the matrix.
@@ -94,43 +96,10 @@ class Matrix:
     
     def swap_rows(self, row1, row2):
         self.data[row1], self.data[row2] = self.data[row2], self.data[row1]
-
-    # def row_echelon(self):
-    #     num_rows, num_cols = len(self.data), len(self.data[0])
-    #     row = 0
-
-    #     for col in range(num_cols):
-    #         if row >= num_rows:
-    #             break
-
-    #         # Find the first non-zero element in the current column
-    #         pivot_row = row
-    #         while pivot_row < num_rows and self.data[pivot_row][col] == 0:
-    #             pivot_row += 1
-
-    #         # If no non-zero element is found, move to the next column
-    #         if pivot_row == num_rows:
-    #             continue
-
-    #         # Swap rows to make the pivot element the leading 1
-    #         self.swap_rows(pivot_row, row)
-
-    #         # Make the pivot element 1
-    #         pivot_element = self.data[row][col]
-    #         self.data[row] = [x / pivot_element for x in self.data[row]]
-
-    #         # Eliminate other rows
-    #         for i in range(num_rows):
-    #             if i != row:
-    #                 factor = self.data[i][col]
-    #                 self.data[i] = [x - factor * y for x, y in zip(self.data[i], self.data[row])]
-
-    #         row += 1
-
-    #     return self
     
     def row_echelon(self, decimal_places=7):
-        num_rows, num_cols = len(self.data), len(self.data[0])
+        num_rows, num_cols = self.shape()
+
         row = 0
 
         for col in range(num_cols):
