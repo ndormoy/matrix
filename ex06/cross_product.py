@@ -13,7 +13,7 @@ from ex00.matrix import Matrix
 # cy = azbx − axbz
 # cz = axby − aybx
 
-def cross_product(u, v):
+def cross_product(u, v) -> Vector:
     if len(u.data) != 3 or len(v.data) != 3:
         raise ValueError("Both vectors must have exactly three elements for cross product.")
 

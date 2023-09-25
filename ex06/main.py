@@ -9,7 +9,7 @@ from ex00.matrix import Matrix
 
 
 def main():
-    colorize_text("EXERCICE 06 : Cosine\n", "green")
+    colorize_text("EXERCICE 06 : Cross Product\n", "green")
     colorize_text("VECTOR\n", "purple")
 
     try:
@@ -31,7 +31,7 @@ def main():
     except Exception as e:
         print(e)
 
-    colorize_text("\Has to fail : ", "red")
+    colorize_text("\nHas to fail : ", "red")
     try:
         u4 = Vector([4.0, 2.0])
         v4 = Vector([-2.0, -5.0, 16.0])

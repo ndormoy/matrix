@@ -25,10 +25,10 @@ class Vector:
     def __str__(self):
         return str(self.data)
     
-    def __mul__(self, scalar):
-        if not isinstance(scalar, (int, float)):
-            raise TypeError("Scalar must be a numeric value.")
-        return Vector([x * scalar for x in self.data])
+    # def __mul__(self, scalar):
+    #     if not isinstance(scalar, (int, float)):
+    #         raise TypeError("Scalar must be a numeric value.")
+    #     return Vector([x * scalar for x in self.data])
 
     def add(self, other):
         if len(self.data) != len(other.data):
