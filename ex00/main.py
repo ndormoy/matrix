@@ -1,9 +1,9 @@
-from vector import Vector
-from matrix import Matrix
 import sys
 import os.path
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
+from vector_matrix.vector import Vector
+from vector_matrix.matrix import Matrix
 from utils.color import colorize_text
 
 
