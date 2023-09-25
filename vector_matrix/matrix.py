@@ -34,16 +34,18 @@ class Matrix:
         return Matrix([[x / scalar for x in row] for row in self.data])
     
 
-    # https://mathinsight.org/matrix_vector_multiplication
+    """
+        https://mathinsight.org/matrix_vector_multiplication
 
-    # For example, if
-    # A=[1 −1 2]
-    #    0 −3 1
-    # and x=(2,1,0)
-    # , then
-    # Ax=[2⋅1 −1⋅1 + 0⋅2 ]
-    #     2⋅0 −1⋅3 + 0⋅1
-    #   = [1−3]
+        For example, if
+        A=[1 -1 2]
+           0 -3 1
+        and x=(2,1,0)
+        , then
+        Ax=[2⋅1 -1⋅1 + 0⋅2 ]
+            2⋅0 -1⋅3 + 0⋅1
+          = [1-3]
+    """
 
     def mul_vec(self, vec) -> Vector:
         if len(self.data[0]) != len(vec.data):
@@ -63,4 +65,9 @@ class Matrix:
         return Matrix(result)
         
         
-    
+    # https://www.statlect.com/matrix-algebra/trace-of-a-matrix
+    # Is the sum of its diagonal entries
+    def trace(self):
+        if len(self.data) != len(self.data[0]):
+            raise ValueError("Matrix must be square to calculate trace.")
+        return sum(self.data[i][i] for i in range(len(self.data)))

@@ -43,7 +43,7 @@ def main():
     num_iterations = 50
     time.sleep(0.5)
     waiting_bar(num_iterations)
-    for i in range(8):
+    for i in range(9):
         os.system(f"python3 ex0{i}/main.py")
 
 if __name__ == '__main__':
