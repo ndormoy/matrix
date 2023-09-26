@@ -150,6 +150,7 @@ class Matrix:
     """
         Determinant of matrix :
         https://www.youtube.com/watch?v=Ip3X9LOh2dk
+        https://www.youtube.com/watch?v=GMvhcEs2dh4
         https://www.mathsisfun.com/algebra/matrix-determinant.html
         https://amalrkrishna596.medium.com/determinant-of-a-matrix-without-numpy-653aac58c121
         https://sdjee2015.wixsite.com/whyandhow/single-post/2017/01/22/determinant-of-a-matrix-using-recursion
@@ -186,6 +187,7 @@ class Matrix:
         If det(A) = 0: The n-dimensional volume collapses to an n-1 dimensional subspace or even lower dimensions.
         
     """
+
     def determinant(self):
         len_row, len_col = self.shape()
         if (len_row != len_col):
@@ -210,6 +212,7 @@ class Matrix:
         This method returns a submatrix obtained by removing the first row and the i-th column from the current matrix.
         It uses deepcopy to create a new matrix with the modified data.
     """
+
     def new_matrix(self, i):
         matrix = cp.deepcopy(self.data)
         if len(matrix) == 2:
@@ -219,3 +222,129 @@ class Matrix:
             for j in matrix:
                 j.pop(i)
             return Matrix(matrix)
+
+    """
+        https://www.mathsisfun.com/algebra/matrix-inverse.html
+        https://www.mathsisfun.com/algebra/matrix-inverse-minors-cofactors-adjugate.html
+        
+        A^-1 == 1 / A
+        AA-1 = A^-1 * A = I
+        
+        I :
+        - It is "square" (has same number of rows as columns),
+        - It has 1s on the diagonal and 0s everywhere else.
+        - Its symbol is the capital letter I.
+    """
+    
+    # def inverse(self):
+    #     len_row, len_col = self.shape()
+    #     determinant = self.determinant()
+    #     if (len_row != len_col):
+    #         raise ValueError("Matrix must be square to calculate inverse.")
+    #     elif (len_row == 1):
+    #         return Matrix([[1.0 / determinant]])
+    #     elif determinant == 0:
+    #         raise ValueError("Matrix is singular and cannot be inverted.")
+    #     elif (len_row == 2):
+    #         new_matrix = Matrix([
+    #             [self.data[1][1], -self.data[0][1]],
+    #             [-self.data[1][0], self.data[0][0]]
+    #         ])
+    #         new_matrix.scl(1.0 / determinant)
+    #         return Matrix([[round(x, 4) for x in row] for row in new_matrix.data])
+    #     # elif len_row == 3:
+    #     #     # For 3x3 matrices, calculate the inverse using cofactor expansion and adjugate matrix
+    #     #     cofactor_matrix = Matrix([
+    #     #         [self.cofactor(0, 0), self.cofactor(0, 1), self.cofactor(0, 2)],
+    #     #         [self.cofactor(1, 0), self.cofactor(1, 1), self.cofactor(1, 2)],
+    #     #         [self.cofactor(2, 0), self.cofactor(2, 1), self.cofactor(2, 2)]
+    #     #     ])
+    #     #     adjugate_matrix = cofactor_matrix.transpose()
+    #     #     return adjugate_matrix.scl(1.0 / determinant)
+    #     # else:
+    #     #     # For matrices larger than 3x3, calculate the inverse using the same approach
+    #     #     cofactor_matrix = Matrix([[self.cofactor(i, j) for j in range(len_col)] for i in range(len_row)])
+    #     #     adjugate_matrix = cofactor_matrix.transpose()
+    #     #     return adjugate_matrix.scl(1.0 / determinant)
+    #     else:
+    #         # Initialize an identity matrix of the same size as the original matrix
+    #         identity_matrix = Matrix([[1 if i == j else 0 for j in range(len_col)] for i in range(len_row)])
+            
+    #         # Create a copy of the original matrix to perform row operations
+    #         original_matrix = Matrix([row[:] for row in self.data])
+            
+    #         # Gaussian elimination with partial pivoting
+    #         for col in range(len_col):
+    #             # Find the pivot row (the row with the largest absolute value in the current column)
+    #             max_index = col
+    #             max_value = abs(original_matrix.data[col][col])
+    #             for i in range(col + 1, len_row):
+    #                 if abs(original_matrix.data[i][col]) > max_value:
+    #                     max_value = abs(original_matrix.data[i][col])
+    #                     max_index = i
+                
+    #             # Swap the current row and the pivot row in both the original and identity matrices
+    #             original_matrix.swap_rows(col, max_index)
+    #             identity_matrix.swap_rows(col, max_index)
+                
+    #             # Scale the current row in both matrices to make the pivot element 1
+    #             pivot_value = original_matrix.data[col][col]
+    #             original_matrix.data[col] = [x / pivot_value for x in original_matrix.data[col]]
+    #             identity_matrix.data[col] = [x / pivot_value for x in identity_matrix.data[col]]
+                
+    #             # Eliminate non-zero entries below the pivot element
+    #             for i in range(col + 1, len_row):
+    #                 factor = original_matrix.data[i][col]
+    #                 original_matrix.data[i] = [x - factor * y for x, y in zip(original_matrix.data[i], original_matrix.data[col])]
+    #                 identity_matrix.data[i] = [x - factor * y for x, y in zip(identity_matrix.data[i], identity_matrix.data[col])]
+            
+    #         # Back-substitution to further reduce the original matrix to the identity matrix
+    #         for col in reversed(range(len_col)):
+    #             for i in range(col):
+    #                 factor = original_matrix.data[i][col]
+    #                 original_matrix.data[i] = [x - factor * y for x, y in zip(original_matrix.data[i], original_matrix.data[col])]
+    #                 identity_matrix.data[i] = [x - factor * y for x, y in zip(identity_matrix.data[i], identity_matrix.data[col])]
+            
+    #         return identity_matrix
+    
+    def inverse(self):
+        len_row, len_col = self.shape()
+        determinant = self.determinant()
+        if (len_row != len_col):
+            raise ValueError("Matrix must be square to calculate inverse.")
+        elif (len_row == 1):
+            return Matrix([[1.0 / determinant]])
+        elif determinant == 0:
+            raise ValueError("Matrix is singular and cannot be inverted.")
+        elif (len_row == 2):
+            new_matrix = Matrix([
+                [self.data[1][1], -self.data[0][1]],
+                [-self.data[1][0], self.data[0][0]]
+            ])
+            new_matrix.scl(1.0 / determinant)
+            return Matrix([[round(x, 4) for x in row] for row in new_matrix.data])
+        else:
+            # Initialize a matrix to store the cofactors
+            cofactor_matrix = Matrix([[self.cofactor(i, j) for j in range(len_col)] for i in range(len_row)])
+            # Calculate the adjugate matrix by transposing the cofactor matrix
+            adjugate_matrix = cofactor_matrix.transpose()
+            # Scale the adjugate matrix by the reciprocal of the determinant
+            adjugate_matrix.scl(1.0 / determinant)
+            # return adjugate_matrix, round before that
+            return Matrix([[round(x, 9) for x in row] for row in adjugate_matrix.data])
+            
+    def cofactor(self, row, col):
+        # Calculate the cofactor of an element at row and col
+        submatrix = self.new_matrix_inv(row, col)
+        sign = (-1) ** (row + col)
+        return sign * submatrix.determinant()
+
+    def new_matrix_inv(self, row, col):
+        # Create a submatrix by excluding the specified row and column
+        arr = cp.deepcopy(self.data)
+        arr.pop(row)
+        for i in range(len(arr)):
+            arr[i].pop(col)
+        return Matrix(arr)
+
+    
