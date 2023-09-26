@@ -1,5 +1,5 @@
 from vector_matrix.vector import Vector
-import numpy as np
+import copy as cp
 
 
 
@@ -145,5 +145,77 @@ class Matrix:
             row += 1
 
         return self
-
     
+    
+    """
+        Determinant of matrix :
+        https://www.youtube.com/watch?v=Ip3X9LOh2dk
+        https://www.mathsisfun.com/algebra/matrix-determinant.html
+        https://amalrkrishna596.medium.com/determinant-of-a-matrix-without-numpy-653aac58c121
+        https://sdjee2015.wixsite.com/whyandhow/single-post/2017/01/22/determinant-of-a-matrix-using-recursion
+        
+        - For a 2x2 matrix the determinant is ad - bc
+        - For a 3x3 matrix multiply a by the determinant of the 2x2 matrix that is not in a's row or column,
+            likewise for b and c, but remember that b has a negative sign!
+        - The pattern continues for larger matrices: multiply a by the determinant of the matrix that is not in a's row or column,
+            continue like this across the whole row, but remember the + - + - pattern.
+            
+        - f the columns (or rows) of a square matrix are linearly dependent, then the determinant of that matrix is 0.
+        This implies that one or more columns (or rows) of the matrix can be expressed as linear combinations of the others.
+        - Zero Volume: In the context of linear transformations, the determinant represents the scaling factor of the volume of the parallelotope (generalization of parallelepiped)
+        formed by applying the linear transformation to a unit cube. When det(A) = 0, it means that the transformation collapses the volume to zero, indicating that the transformation is not invertible.
+        
+        2D Space (2x2 Matrix): Represents the factor by which the area of any region in the plane is scaled when it undergoes the linear transformation.
+
+        If det(A) > 1: The area expands (scaling factor > 1).
+        If det(A) < 1: The area contracts (scaling factor < 1).
+        If det(A) = 0: The area collapses to zero.
+        Essentially, the determinant tells you how much the linear transformation stretches or shrinks the area.
+
+        3D Space (3x3 Matrix): Represents the factor by which the volume of any three-dimensional shape (parallelepiped) is scaled when it undergoes the linear transformation.
+
+        If det(A) > 1: The volume expands (scaling factor > 1).
+        If det(A) < 1: The volume contracts (scaling factor < 1).
+        If det(A) = 0: The volume collapses to zero.
+        Again, the determinant provides information about how much the linear transformation stretches or shrinks the volume.
+
+        n-Dimensional Space (nxn Matrix): In an n-dimensional vector space, the determinant of an nxn matrix A represents the scaling factor of the n-dimensional volume (n-parallelotope) formed by applying the linear transformation represented by A.
+
+        If det(A) > 1: The n-dimensional volume expands (scaling factor > 1).
+        If det(A) < 1: The n-dimensional volume contracts (scaling factor < 1).
+        If det(A) = 0: The n-dimensional volume collapses to an n-1 dimensional subspace or even lower dimensions.
+        
+    """
+    def determinant(self):
+        len_row, len_col = self.shape()
+        if (len_row != len_col):
+            raise ValueError("Matrix must be square to calculate determinant.")
+        elif (len_row > 4):
+            raise ValueError("Matrix must be 4x4 or less to calculate determinant.")
+        elif (len_row == 1):
+            return self.data[0][0]
+        elif (len_row == 2):
+            return (self.data[0][0] * self.data[1][1]) - (self.data[0][1] * self.data[1][0])
+        elif (len_row == 3):
+            return (self.data[0][0] * (self.data[1][1] * self.data[2][2] - self.data[2][1] * self.data[1][2])
+           -self.data[1][0] * (self.data[0][1] * self.data[2][2] - self.data[2][1] * self.data[0][2])
+           +self.data[2][0] * (self.data[0][1] * self.data[1][2] - self.data[1][1] * self.data[0][2]))
+        else:
+            pro = 0
+            for i in range(len_col):
+                pro += ((-1) ** i) * self.data[0][i] * self.new_matrix(i).determinant() # Recursive expansion by minors
+            return pro
+
+    """
+        This method returns a submatrix obtained by removing the first row and the i-th column from the current matrix.
+        It uses deepcopy to create a new matrix with the modified data.
+    """
+    def new_matrix(self, i):
+        matrix = cp.deepcopy(self.data)
+        if len(matrix) == 2:
+            return Matrix(matrix)
+        else:
+            matrix.pop(0)
+            for j in matrix:
+                j.pop(i)
+            return Matrix(matrix)
