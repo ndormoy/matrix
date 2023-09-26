@@ -9,7 +9,7 @@ from utils.color import colorize_text
 
 
 def main():
-    colorize_text("EXERCICE 00\n", "green")
+    colorize_text("EXERCICE 00 ✅\n", "green")
     colorize_text("VECTOR\n", "purple")
     
     try:

@@ -9,7 +9,7 @@ from linear_combination import linear_combination
 
 
 def main():
-    colorize_text("EXERCICE 01 : Linear combination\n", "green")
+    colorize_text("EXERCICE 01 : Linear combination ✅\n", "green")
     colorize_text("VECTOR\n", "purple")
     
     try:

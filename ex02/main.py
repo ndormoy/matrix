@@ -9,7 +9,7 @@ from vector_matrix.matrix import Matrix
 
 
 def main():
-    colorize_text("EXERCICE 02 : Linear Combination\n", "green")
+    colorize_text("EXERCICE 02 : Linear Combination ✅\n", "green")
     colorize_text("NUMBERS\n", "purple")
     try:
         print(lerp(0.0, 1.0, 0.0)) # 0.0

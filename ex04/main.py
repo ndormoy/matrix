@@ -8,7 +8,7 @@ from vector_matrix.matrix import Matrix
 
 
 def main():
-    colorize_text("EXERCICE 04 : Norm\n", "green")
+    colorize_text("EXERCICE 04 : Norm ✅\n", "green")
     colorize_text("VECTOR\n", "purple")
 
     try:

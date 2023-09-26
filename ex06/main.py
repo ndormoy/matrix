@@ -9,7 +9,7 @@ from vector_matrix.matrix import Matrix
 
 
 def main():
-    colorize_text("EXERCICE 06 : Cross Product\n", "green")
+    colorize_text("EXERCICE 06 : Cross Product ✅\n", "green")
     colorize_text("VECTOR\n", "purple")
 
     try:

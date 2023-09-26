@@ -272,4 +272,23 @@ class Matrix:
         sign = (-1) ** (row + col)
         return sign * submatrix.determinant()
 
+    """
+        https://www.mathsisfun.com/algebra/matrix-rank.html
+        https://www.cuemath.com/algebra/rank-of-a-matrix/
+        The rank is how many of the rows are "unique": not made of other rows. (Same for columns.)
+        
+        Finding rank with echelon form
+        
+        1) Convert the matrix into Echelon form using row/column transformations.
+        2) Then the rank of the matrix is equal to the number of non-zero rows in the resultant matrix.
+            (at least one element in the row is non-zero --> +1 to rank)
+    """
+
+    def rank(self) -> int:
+        self.row_echelon()
+        # rank = sum(1 for x in self.data if x != 0)
+        rank = sum(1 for row in self.data if any(x != 0 for x in row))
+        return rank  # Replace with your implementation
+
+
 

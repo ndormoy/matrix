@@ -8,7 +8,7 @@ from vector_matrix.matrix import Matrix
 
 
 def main():
-    colorize_text("EXERCICE 12 : MATRIX Inverse\n", "green")
+    colorize_text("EXERCICE 12 : MATRIX Inverse ✅\n", "green")
     colorize_text("MATRIX\n", "purple")
     
     try:
@@ -63,7 +63,7 @@ def main():
     except Exception as e:
         print(e)
 
-    colorize_text("\nHas to fail : ", "red")
+    colorize_text("\nHas to fail : \n", "red")
     try:
         u5 = Matrix([
             [1.0, 2.0, 3.0],
