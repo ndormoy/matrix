@@ -1,6 +1,10 @@
+import sys
+import os.path
 from vector_matrix.vector import Vector
 import copy as cp
-
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
+from utils.math import ft_abs, ft_max
 
 
 """_summary_
@@ -111,7 +115,7 @@ class Matrix:
     def swap_rows(self, row1, row2):
         self.data[row1], self.data[row2] = self.data[row2], self.data[row1]
     
-    def row_echelon(self, decimal_places=7):
+    def row_echelon(self):
         num_rows, num_cols = self.shape()
 
         row = 0
@@ -134,19 +138,18 @@ class Matrix:
 
             # Make the pivot element 1 and round it
             pivot_element = self.data[row][col]
-            self.data[row] = [round(x / pivot_element, decimal_places) for x in self.data[row]]
+            self.data[row] = [(x / pivot_element) for x in self.data[row]]
 
             # Eliminate other rows
             for i in range(num_rows):
                 if i != row:
                     factor = self.data[i][col]
-                    self.data[i] = [round(x - factor * y, decimal_places) for x, y in zip(self.data[i], self.data[row])]
+                    self.data[i] = [(x - factor * y) for x, y in zip(self.data[i], self.data[row])]
 
             row += 1
 
         return self
-    
-    
+
     """
         Determinant of matrix :
         https://www.youtube.com/watch?v=Ip3X9LOh2dk
@@ -255,16 +258,16 @@ class Matrix:
                 [-self.data[1][0], self.data[0][0]]
             ])
             new_matrix.scl(1.0 / determinant)
-            return Matrix([[round(x, 4) for x in row] for row in new_matrix.data])
+            return new_matrix
         else:
             # Initialize a matrix to store the cofactors
-            cofactor_matrix = Matrix([[round(self.cofactor(i, j)) for j in range(len_col)] for i in range(len_row)])
+            cofactor_matrix = Matrix([[(self.cofactor(i, j)) for j in range(len_col)] for i in range(len_row)])
             # Calculate the adjugate matrix by transposing the cofactor matrix
             adjugate_matrix = cofactor_matrix.transpose()
             # Scale the adjugate matrix by the reciprocal of the determinant
             adjugate_matrix.scl(1.0 / determinant)
-            # return adjugate_matrix, round before that
-            return Matrix([[round(x, 9) for x in row] for row in adjugate_matrix.data])
+            # return adjugate_matrix
+            return adjugate_matrix
 
     def cofactor(self, row, col):
         # Calculate the cofactor of an element at row and col

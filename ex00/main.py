@@ -5,6 +5,7 @@ sys.path.append(
 from vector_matrix.vector import Vector
 from vector_matrix.matrix import Matrix
 from utils.color import colorize_text
+from utils.math import ft_abs
 
 
 
@@ -50,8 +51,6 @@ def main():
     try:
         # Matrix addition, subtraction, and scaling tests
         u = Matrix([[1.0, 2.0], [3.0, 4.0]])
-        # u = Matrix([[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]])
-
         v = Matrix([[7.0, 4.0], [-2.0, 2.0]])
         u.add(v)
         print(u)

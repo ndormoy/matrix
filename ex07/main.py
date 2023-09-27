@@ -3,6 +3,7 @@ import os.path
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from utils.color import colorize_text
+from utils.math import ft_abs
 from vector_matrix.vector import Vector
 from vector_matrix.matrix import Matrix
 
@@ -19,6 +20,7 @@ def main():
             print(row)
         # [4.0]
         # [2.0]
+        print("\n")
 
         u2 = Matrix([[2.0, 0.0], [0.0, 2.0]])
         v2 = Vector([4.0, 2.0])
@@ -27,6 +29,7 @@ def main():
             print(row)
         # [8.0]
         # [4.0]
+        print("\n")
 
         u3 = Matrix([[2.0, -2.0], [-2.0, 2.0]])
         v3 = Vector([4.0, 2.0])
@@ -46,6 +49,7 @@ def main():
             print(row)
         # [1.0, 0.0]
         # [0.0, 1.0]
+        print("\n")
 
         u5 = Matrix([[1.0, 0.0], [0.0, 1.0]])
         v5 = Matrix([[2.0, 1.0], [4.0, 2.0]])
@@ -54,6 +58,7 @@ def main():
             print(row)
         # [2.0, 1.0]
         # [4.0, 2.0]
+        print("\n")
 
         u6 = Matrix([[3.0, -5.0], [6.0, 8.0]])
         v6 = Matrix([[2.0, 1.0], [4.0, 2.0]])
@@ -62,7 +67,8 @@ def main():
             print(row)
         # [-14, -7.0]
         # [44.0, 22.0]
-        
+        print("\n")
+
         u7 = Matrix([[1.0, 4.0, -2.0], [3.0, 5.0, -6.0]])
         v7 = Matrix([[5.0, 2.0, 8.0, -1.0], [3.0, 6.0, 4.0, 5.0], [-2.0, 9.0, 7.0, -3.0]])
         result7 = u7.mul_mat(v7)

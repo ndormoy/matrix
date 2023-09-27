@@ -4,6 +4,7 @@ from angle_cos import angle_cos
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from utils.color import colorize_text
+from utils.math import ft_abs
 from vector_matrix.vector import Vector
 from vector_matrix.matrix import Matrix
 
@@ -40,7 +41,7 @@ def main():
     try:
         u = Vector([0.0, 0.0])
         v = Vector([1.0, 1.0, 1.0])
-        print("{}".format(angle_cos(u, v)))  # 1.0
+        print("{}".format(angle_cos(u, v)))
     except Exception as e:
         print(e)
 
@@ -49,7 +50,7 @@ def main():
         u = Vector([0.0, 0.0])
         v = Vector([0.0, 0.0])
 
-        print("{}".format(angle_cos(u, v)))  # 1.0
+        print("{}".format(angle_cos(u, v)))
     except Exception as e:
         print(e)
 

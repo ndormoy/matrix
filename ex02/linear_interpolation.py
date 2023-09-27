@@ -3,6 +3,7 @@ import os.path
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from utils.color import colorize_text
+from utils.math import ft_abs
 from vector_matrix.vector import Vector
 from vector_matrix.matrix import Matrix
 
@@ -33,15 +34,15 @@ def lerp(u, v, t: float) -> Vector:
     elif isinstance(u, Vector):
         if len(u) != len(v):
             raise ValueError("Vector dimensions do not match.")
-        return [round((1 - t) * ux + t * vy, 1) for ux, vy in zip(u, v)]
+        return [((1 - t) * ux + t * vy) for ux, vy in zip(u, v)]
     elif isinstance(v, Matrix):
         if len(u.data) != len(v.data) or len(u.data[0]) != len(v.data[0]):
             raise ValueError("Matrix dimensions do not match.")
         return Matrix([
             [
-                round((1 - t) * u_elem + t * v_elem, 1)
+                ((1 - t) * u_elem + t * v_elem)
                 for u_elem, v_elem in zip(u_row, v_row)
             ]
             for u_row, v_row in zip(u.data, v.data)
         ])
-    return round((1 - t) * u + t * v, 1)
+    return ((1 - t) * u + t * v)

@@ -4,6 +4,8 @@ import os.path
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from utils.color import colorize_text
+from utils.math import ft_abs, ft_max
+
 from vector_matrix.vector import Vector
 from vector_matrix.matrix import Matrix
 
@@ -19,4 +21,4 @@ def angle_cos(u, v):
         return None  # Avoid division by zero
     if len(u.data) != len(v.data):
         raise None # different vector sizes
-    return round(dot_product / (norm_u * norm_v), 9)
+    return (dot_product / (norm_u * norm_v))

@@ -6,6 +6,8 @@ from utils.color import colorize_text
 from vector_matrix.vector import Vector
 from vector_matrix.matrix import Matrix
 from linear_combination import linear_combination
+from utils.math import ft_abs
+
 
 
 def main():

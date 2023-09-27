@@ -4,12 +4,14 @@ from linear_interpolation import lerp
 sys.path.append(
     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from utils.color import colorize_text
+from utils.math import ft_abs
 from vector_matrix.vector import Vector
 from vector_matrix.matrix import Matrix
 
 
+
 def main():
-    colorize_text("EXERCICE 02 : Linear Combination ✅\n", "green")
+    colorize_text("EXERCICE 02 : Linear interpolation ✅\n", "green")
     colorize_text("NUMBERS\n", "purple")
     try:
         print(lerp(0.0, 1.0, 0.0)) # 0.0

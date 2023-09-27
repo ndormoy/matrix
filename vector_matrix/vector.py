@@ -1,4 +1,8 @@
-
+import sys
+import os.path
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
+from utils.math import ft_abs, ft_max
 
 """_summary_
 
@@ -58,14 +62,20 @@ class Vector:
     # norm1 ( Manhattan Distance or Taxicab norm) : 
     # the sum of absolute difference of the components of the vectors.
     def norm_1(self):
-        return sum(abs(x) for x in self.data)
+        return sum(ft_abs(x) for x in self.data)
     
     # norm2 (Euclidean norm) :
     # It is the shortest distance to go from one point to another.
     def norm(self):
-        return sum((abs(x))**2 for x in self.data)**0.5
+        return sum((ft_abs(x))**2 for x in self.data)**0.5
     
     # infinity norm : Gives the largest magnitude among each element of a vector.
     # Having the vector X= [-6, 4, 2], the L-infinity norm is 6.
+    # def norm_inf(self):
+    #     return max(ft_abs(x) for x in self.data)
     def norm_inf(self):
-        return max(abs(x) for x in self.data)
+        # Convert the generator expression to a list
+        abs_values = [ft_abs(x) for x in self.data]
+
+        # Use the ft_max function on the list
+        return ft_max(abs_values)

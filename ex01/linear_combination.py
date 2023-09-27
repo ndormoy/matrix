@@ -21,7 +21,6 @@ def linear_combination(u : Vector, coefs) -> Vector:
     result = Vector([0.0 for _ in range(len(u[0].data))])
     for vector, coefficient in zip(u, coefs):
         scaled_vector = Vector([x * coefficient for x in vector.data])
-        # print(f"Scalled veector = {scaled_vector}")
         result.add(scaled_vector)
 
     return result
