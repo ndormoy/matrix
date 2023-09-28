@@ -24,6 +24,73 @@ def main():
     except Exception as e:
         print(e)
 
+    colorize_text("\n--------------------------------\n", "purple")
+    colorize_text("CORRECTION\n", "blue")
+
+    try:
+        colorize_text("Euclidian\n", "purple")
+        
+        v1 = Vector([0])
+        result = v1.norm()
+        print(f"{v1.data}.norm() gives {result} --> expected : 0")
+
+        v2 = Vector([1])
+        result = v2.norm()
+        print(f"{v2.data}.norm() gives {result} --> expected : 1.0")
+
+        v3 = Vector([0, 0])
+        result = v3.norm()
+        print(f"{v3.data}.norm() gives {result} --> expected : 0.0")
+
+        v4 = Vector([1, 0])
+        result = v4.norm()
+        print(f"{v4.data}.norm() gives {result} --> expected : 1.0")
+
+        v5 = Vector([2, 1])
+        result = v5.norm()
+        print(f"{v5.data}.norm() gives {result} --> expected : 2.236067977")
+
+        v6 = Vector([4, 2])
+        result = v6.norm()
+        print(f"{v6.data}.norm() gives {result} --> expected : 4.472135955")
+
+        v7 = Vector([-4, -2])
+        result = v7.norm()
+        print(f"{v7.data}.norm() gives {result} --> expected : 4.472135955")
+
+        colorize_text("\nManhattan\n", "purple")
+
+        v1 = Vector([0])
+        result = v1.norm_1()
+        print(f"{v1.data} returns {result} --> expected : 0")
+
+        v2 = Vector([1])
+        result = v2.norm_1()
+        print(f"{v2.data} returns {result} --> expected : 1.0")
+
+        v3 = Vector([0, 0])
+        result = v3.norm_1()
+        print(f"{v3.data} returns {result} --> expected : 0.0")
+
+        v4 = Vector([1, 0])
+        result = v4.norm_1()
+        print(f"{v4.data} returns {result} --> expected : 1.0")
+
+        v5 = Vector([2, 1])
+        result = v5.norm_1()
+        print(f"{v5.data} returns {result} --> expected : 3.0")
+
+        v6 = Vector([4, 2])
+        result = v6.norm_1()
+        print(f"{v6.data} returns {result} --> expected : 6.0")
+
+        v7 = Vector([-4, -2])
+        result = v7.norm_1()
+        print(f"{v7.data} returns {result} --> expected : 6.0")
+
+    except Exception as e:
+        print(e)
+
     colorize_text("\n================================\n", "cyan")
 
 if __name__ == '__main__':

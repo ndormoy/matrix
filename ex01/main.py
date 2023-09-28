@@ -57,6 +57,31 @@ def main():
         print(result3)
     except ValueError as e:
         print(e)
+
+    colorize_text("\n--------------------------------\n", "purple")
+    colorize_text("CORRECTION\n", "blue")
+    try:
+        colorize_text("linear_combination([Vector([-42, 42])], [-1.])", "yellow")
+        result0 = linear_combination([Vector([-42, 42])], [-1.])
+        print(f"{result0} --> expected : [42.0, -42.0]\n")
+
+        colorize_text("linear_combination([Vector([-42.]), Vector([-42.]), Vector([-42.])], [-1., 1., 0.])", "yellow")
+        result1 = linear_combination([Vector([-42.]), Vector([-42.]), Vector([-42.])], [-1., 1., 0.])
+        print(f"{result1} --> expected : [0.0]\n")
+
+        colorize_text("linear_combination([Vector([-42., 42.]), Vector([1., 3.]), Vector([10., 20.])], [1., -10., -1.])", "yellow")
+        result2 = linear_combination([Vector([-42., 42.]), Vector([1., 3.]), Vector([10., 20.])], [1., -10., -1.])
+        print(f"{result2} --> expected : [-62.0, -8.0]\n")
+
+        colorize_text("linear_combination([Vector([-42., 100., -69.5]), Vector([1., 3., 5.])], [1., -10.])", "yellow")
+        result3 = linear_combination([Vector([-42., 100., -69.5]), Vector([1., 3., 5.])], [1., -10.])
+        print(f"{result3} --> expected : [-52.0, 70.0, -119.5]\n")
+
+        print(f"")
+    except ValueError as e:
+        print(e)
+
+
     
     colorize_text("\n================================\n", "cyan")
 

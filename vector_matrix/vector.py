@@ -48,12 +48,14 @@ class Vector:
         self.data = [x * scalar for x in self.data]
         # return Vector([x * scalar for x in self.data])
 
+    """
+        The dot product, also known as the scalar product or inner product, is a mathematical operation that takes two vectors and returns a scalar quantity.
+        It is defined as the sum of the products of the corresponding components of the two vectors.
+    """
+
     def dot(self, other):
         if len(self.data) != len(other.data):
             raise ValueError("Vector dimensions do not match.")
-        # Check if all elements in both vectors are of type float
-        if not all(isinstance(x, float) for x in self.data) or not all(isinstance(x, float) for x in other.data):
-            raise ValueError("All elements in both vectors must be of type float.")
         return sum(x * y for x, y in zip(self.data, other.data))
 
 
@@ -71,8 +73,6 @@ class Vector:
     
     # infinity norm : Gives the largest magnitude among each element of a vector.
     # Having the vector X= [-6, 4, 2], the L-infinity norm is 6.
-    # def norm_inf(self):
-    #     return max(ft_abs(x) for x in self.data)
     def norm_inf(self):
         # Convert the generator expression to a list
         abs_values = [ft_abs(x) for x in self.data]

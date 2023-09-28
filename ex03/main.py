@@ -44,6 +44,43 @@ def main():
     except Exception as e:
         print(e)
 
+    colorize_text("\n--------------------------------\n", "purple")
+    colorize_text("CORRECTION\n", "blue")
+
+    try:
+        v1 = Vector([0, 0])
+        v2 = Vector([0, 0])
+        result = v1.dot(v2)
+        print(f"{v1.data} and {v2.data} gives {result} --> expected : 0")
+
+        v1 = Vector([1, 0])
+        v2 = Vector([0, 0])
+        result = v1.dot(v2)
+        print(f"{v1.data} and {v2.data} gives {result} --> expected : 0")
+
+        v1 = Vector([1, 0])
+        v2 = Vector([1, 0])
+        result = v1.dot(v2)
+        print(f"{v1.data} and {v2.data} gives {result} --> expected : 1")
+
+        v1 = Vector([1, 0])
+        v2 = Vector([0, 1])
+        result = v1.dot(v2)
+        print(f"{v1.data} and {v2.data} gives {result} --> expected : 0")
+
+        v1 = Vector([1, 1])
+        v2 = Vector([1, 1])
+        result = v1.dot(v2)
+        print(f"{v1.data} and {v2.data} gives {result} --> expected : 2")
+
+        v1 = Vector([4, 2])
+        v2 = Vector([2, 1])
+        result = v1.dot(v2)
+        print(f"{v1.data} and {v2.data} gives {result} --> expected : 10")
+
+    except Exception as e:
+        print(e)
+
     colorize_text("\n================================\n", "cyan")
 
 if __name__ == '__main__':
