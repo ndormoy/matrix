@@ -37,8 +37,9 @@ def main():
         # result2[2] = 10 * v1[2] -2 * v2[2] = 10 * 3 -2 * -100 = 230
 
         # Print results
-        print(result1)
-        print(result2)
+        print(f"{result1} --> expected : [10.0, -2.0, 0.5]")
+        
+        print(f"{result2} --> expected : [10.0, 0.0, 230.0]")
     except ValueError as e:
         print(e)
     
