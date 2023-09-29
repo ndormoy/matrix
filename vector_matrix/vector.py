@@ -59,7 +59,19 @@ class Vector:
         return sum(x * y for x, y in zip(self.data, other.data))
 
 
-    #! https://montjoile.medium.com/l0-norm-l1-norm-l2-norm-l-infinity-norm-7a7d18a4f40c
+    """
+        https://montjoile.medium.com/l0-norm-l1-norm-l2-norm-l-infinity-norm-7a7d18a4f40c
+        
+        Think of the "norm" of a vector as a way to measure how long or short the vector is.
+        Imagine you have an arrow (the vector), and you want to know how long it is.
+        That's what the norm tells you.
+
+        Here's how it works:
+
+        - If the arrow has no length at all (it's just a dot at a point), its norm is 0.
+        - If the arrow has some length, you can imagine it as a line. The longer the line, the bigger the norm.
+        - To calculate the norm, you square the length of each part of the arrow, add all those squared values together, and then take the square root of the result.
+    """
     
     # norm1 ( Manhattan Distance or Taxicab norm) : 
     # the sum of absolute difference of the components of the vectors.
