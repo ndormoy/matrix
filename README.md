@@ -1,13 +1,45 @@
-# matrix
-An introduction to Linear Algebra.
+<h1>
+    matrix
+</h1>
+An introduction to Linear Algebra.  
 
+******************  
+
+Summary:
+1. [Linear Combination ](#LinearCombination)
+2. [Linear Interpolation](#LinearInterpolation)
+3. [Dot Product](#DotProduct)
+4. [Norm](#Norm)
+5. [Cosine](#Cosine)
+6. [Cross Product](#CrossProduct)
+7. [Linear Map](#LinearMap)
+8. [Trace](#Trace)
+9. [Transpose](#Transpose)
+10. [Row-Echelon form](#Row-Echelonform)
+11. [Determinant](#Determinant)
+12. [Inverse](#Inverse)
+13. [Rank](#Rank)
+
+
+<div id='LinearCombination'>
+
+<span style="color: green">
 
 ## I) Linear Combination :
+
+</span>
 
 A linear combination is a mathematical operation that involves **multiplying each element of a
 set of values** (usually numbers or vectors) by corresponding coefficients and then summing up the results.
 
+<div id='LinearInterpolation'>
+
+
+<span style="color: green">
+
 ## II) Linear Interpolation :
+
+</span>
 
 Linear interpolation is a method for **estimating values between two known values**.
 It is a simple and commonly used technique to approximate a value that lies between two data points by assuming a linear relationship between them.
@@ -15,7 +47,15 @@ It is a simple and commonly used technique to approximate a value that lies betw
 In linear interpolation, you have two known data points (A and B) with values (y_A and y_B) and you want to find the value (y) at some point between A and B.  
 Linear interpolation assumes that the relationship between the values is linear, which means that the change in the value is constant as you move from A to B.
 
+<div id='DotProduct'>
+
+
+<span style="color: green">
+
 ## III) Dot Product
+
+</span>
+
 
 The dot product, also known as the scalar product or inner product, is a mathematical operation that **takes two vectors and returns a scalar quantity**.  
 It is defined as the ***sum of the products*** of the corresponding components of the two vectors.
@@ -27,7 +67,15 @@ v2 = Vector([2, 1])
 v1.dot(v2) = 4 + 2 + 2 + 1 = 10
 ```
 
+<div id='Norm'>
+
+
+<span style="color: green">
+
 ## IV) Norm
+
+</span>
+
 
 Think of the "norm" of a vector as a way to measure **how long or short the vector is**.
 Imagine you have an arrow (the vector), and you want to know how long it is.
@@ -45,7 +93,14 @@ Here's how it works:
 - **infinity norm (norm_inf)** : Gives the largest magnitude among each element of a vector.  
 --> Having the vector X= [-6, 4, 2], the L-infinity norm is 6.
 
+<div id='Cosine'>
+
+
+<span style="color: green">
+
 ## V) Cosine
+
+</span>
 
 **cosine = (Dot [u, v]) / (Norm[u] Norm[v]);**   --> We use Euclidian norm
 
@@ -60,7 +115,13 @@ v_x is the x-component of the vector v.
 ||v|| is the magnitude (norm) of the vector v.
 In this context, the cosine of the angle represents how much of the vector's length is aligned with the x-axis. If cos(θ) is 1, it means the vector is parallel to the x-axis. If it's 0, it means the vector is perpendicular to the x-axis. If it's -1, it means the vector is parallel but in the opposite direction of the x-axis.
 
+<div id='CrossProduct'>
+
+<span style="color: green">
+
 ## VI) Cross Product
+
+</span>
 
 The cross product is a mathematical operation that takes two vectors and produces a third vector **that is perpendicular** (or orthogonal) to the plane formed by the original two vectors. In simpler terms, it gives you a vector that is at a right angle to both of the input vectors.
 
@@ -74,7 +135,13 @@ Imagine you have two vectors, A and B, in three-dimensional space. The cross pro
 
 ![img](elements/crossproduct.png)
 
-## VI) Linear Map, Matrix multiplication
+<div id='LinearMap'>
+
+<span style="color: green">
+
+## VII) Linear Map, Matrix multiplication
+
+</span>
 
 Matrix multiplication is a mathematical operation used to combine two matrices to create a new matrix. In a simple way, you can think of it as a way to mix and match numbers in a structured manner.  
 ![img](elements/matrix_multiplication.png)  
@@ -82,17 +149,35 @@ Matrix multiplication is a mathematical operation used to combine two matrices t
 Matrix multiplication scales/rotates/skews... a geometric plane  
 Same for linear map but with a vector.
 
-## VII) Trace
+<div id='Trace'>
+
+<span style="color: green">
+
+## VIII) Trace
+
+</span>
 
 The trace of a square matrix is the sum of its diagonal entries.  
 ![img](elements/trace.png)
 
-## VIII) Transpose
+<div id='Transpose'>
+
+<span style="color: green">
+
+## IX) Transpose
+
+</span>
 
 The transpose of a matrix is a new matrix whose rows are the columns of the original.
 ![img](elements/transpose.png)
 
-## IX) Row-Echelon form
+<div id='Row-Echelonform'>
+
+<span style="color: green">
+
+## X) Row-Echelon form
+
+</span>
 
 The row-echelon form (or row echelon form) of a matrix is a special form used in linear algebra that **simplifies the process of solving linear equations** and performing various matrix operations. Its primary purpose is to make it easier to analyze and manipulate matrices for tasks like solving systems of linear equations, finding matrix inverses, and determining the rank of a matrix.
 
@@ -126,7 +211,13 @@ If so, it means the column is all zeros, and we move to the next column by using
 
 ![img](elements/row_echelon_form.png)
 
-## X) Determinant
+<div id='Determinant'>
+
+<span style="color: green">
+
+## XI) Determinant
+
+</span>
 
 Purpose: The determinant can tell you two important things:
 
@@ -139,7 +230,14 @@ A positive determinant means it stretches or shrinks, while a negative determina
 ![img](elements/determinant1.png)
 ![img](elements/determinant2.png)  
 
-## XI) Inverse
+<div id='Inverse'>
+
+<span style="color: green">
+
+## XII) Inverse
+
+</span>
+
 ```
 A^-1 == 1 / A
 AA-1 = A^-1 * A = I
@@ -160,7 +258,13 @@ The Identity matrix ot 'I', by definition, is a special square matrix with ones 
 
 ![img](elements/inverse.png)
 
-## XII) Rank
+<span style="color: green">
+
+<div id='Rank'>
+
+## XIII) Rank
+
+</span>
 
 The rank of a matrix is the number of linearly independent rows or columns in the matrix.  
 
