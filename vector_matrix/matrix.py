@@ -62,9 +62,7 @@ class Matrix:
 
     
     def mul_mat(self, matrix2):
-        # print(f"pouet {len(self.data[0])}, {len(matrix2.data)}")
         if len(self.data[0]) != len(matrix2.data):
-            # print(f"FAILED {len(self.data[0])}, {len(matrix2.data)}")
             raise ValueError("Matrix1 columns must match Matrix2 rows for multiplication.")
 
         result = [[sum(self.data[i][j] * matrix2.data[j][k] for j in range(len(matrix2.data))) for k in range(len(matrix2.data[0]))] for i in range(len(self.data))]
