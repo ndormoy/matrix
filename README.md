@@ -25,7 +25,7 @@ Summary:
 
 <span style="color: green">
 
-## I) Linear Combination :
+## I) **Linear Combination** :
 
 </span>
 
@@ -37,7 +37,7 @@ set of values** (usually numbers or vectors) by corresponding coefficients and t
 
 <span style="color: green">
 
-## II) Linear Interpolation :
+## II) **Linear Interpolation** :
 
 </span>
 
@@ -52,7 +52,7 @@ Linear interpolation assumes that the relationship between the values is linear,
 
 <span style="color: green">
 
-## III) Dot Product
+## III) **Dot Product**
 
 </span>
 
@@ -72,7 +72,7 @@ v1.dot(v2) = 4 + 2 + 2 + 1 = 10
 
 <span style="color: green">
 
-## IV) Norm
+## IV) **Norm**
 
 </span>
 
@@ -98,7 +98,7 @@ Here's how it works:
 
 <span style="color: green">
 
-## V) Cosine
+## V) **Cosine**
 
 </span>
 
@@ -119,7 +119,7 @@ In this context, the cosine of the angle represents how much of the vector's len
 
 <span style="color: green">
 
-## VI) Cross Product
+## VI) **Cross Product**
 
 </span>
 
@@ -139,7 +139,7 @@ Imagine you have two vectors, A and B, in three-dimensional space. The cross pro
 
 <span style="color: green">
 
-## VII) Linear Map, Matrix multiplication
+## VII) **Linear Map, Matrix multiplication**
 
 </span>
 
@@ -153,7 +153,7 @@ Same for linear map but with a vector.
 
 <span style="color: green">
 
-## VIII) Trace
+## VIII) **Trace**
 
 </span>
 
@@ -164,8 +164,8 @@ The trace of a square matrix is the sum of its diagonal entries.
 
 <span style="color: green">
 
-## IX) Transpose
-
+## IX) **Transpose**
+**
 </span>
 
 The transpose of a matrix is a new matrix whose rows are the columns of the original.
@@ -175,7 +175,7 @@ The transpose of a matrix is a new matrix whose rows are the columns of the orig
 
 <span style="color: green">
 
-## X) Row-Echelon form
+## X) **Row-Echelon form**
 
 </span>
 
@@ -215,7 +215,7 @@ If so, it means the column is all zeros, and we move to the next column by using
 
 <span style="color: green">
 
-## XI) Determinant
+## XI) **Determinant**
 
 </span>
 
@@ -234,7 +234,7 @@ A positive determinant means it stretches or shrinks, while a negative determina
 
 <span style="color: green">
 
-## XII) Inverse
+## XII) **Inverse**
 
 </span>
 
@@ -262,7 +262,7 @@ The Identity matrix ot 'I', by definition, is a special square matrix with ones 
 
 <div id='Rank'>
 
-## XIII) Rank
+## XIII) **Rank**
 
 </span>
 

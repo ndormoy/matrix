@@ -50,8 +50,8 @@ def main():
         u = Matrix([[0, 0], [0, 0]])
         print(f"rank = {u.rank()} --> expected : 0\n")
         
-        colorize_text("rank of [[1, 0], [0, 0]]", "yellow")
-        u = Matrix([[1, 0], [0, 0]])
+        colorize_text("rank of [[1, 0], [0, 1]]", "yellow")
+        u = Matrix([[1, 0], [0, 1]])
         print(f"rank = {u.rank()} --> expected : 1\n")
         
         colorize_text("rank of [[2, 0], [0, 2]]", "yellow")
@@ -75,6 +75,8 @@ def main():
         print(f"rank = {u.rank()} --> expected : 2\n")
         
         colorize_text("rank of [[1, 0, 0], [0, 1, 0], [0, 0, 1]]", "yellow")
+        u = Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+        print(f"rank = {u.rank()} --> expected : 3\n")
         
         
         

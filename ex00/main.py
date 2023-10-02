@@ -120,16 +120,19 @@ def main():
     colorize_text("'[[1, 0], [0, 1]]' and '[[0, 0], [0, 0]]", "yellow")
     u = Matrix([[1, 0], [0, 1]])
     v = Matrix([[0, 0], [0, 0]])
+    u.add(v)
     print(f"Result : \n{u}\n\nExpected :\n1 0\n0 1\n")
 
     colorize_text("'[[1, 1], [1, 1]]' and '[[1, 1], [1, 1]]", "yellow")
     u = Matrix([[1, 1], [1, 1]])
     v = Matrix([[1, 1], [1, 1]])
+    u.add(v)
     print(f"Result : \n{u}\n\nExpected :\n2 2\n2 2\n")
 
     colorize_text("'[[21, 21], [21, 21]]' and '[[21, 21], [21, 21]]", "yellow")
     u = Matrix([[21, 21], [21, 21]])
     v = Matrix([[21, 21], [21, 21]])
+    u.add(v)
     print(f"Result : \n{u}\n\nExpected :\n42 42\n42 42\n")
 
     colorize_text("SUB\n", "purple")

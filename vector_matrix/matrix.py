@@ -50,7 +50,7 @@ class Matrix:
         , then
         Ax=[2⋅1 -1⋅1 + 0⋅2 ]
             2⋅0 -1⋅3 + 0⋅1
-          = [1-3]
+          = [1, -3]
     """
 
     def mul_vec(self, vec) -> Vector:
@@ -162,7 +162,7 @@ class Matrix:
         - The pattern continues for larger matrices: multiply a by the determinant of the matrix that is not in a's row or column,
             continue like this across the whole row, but remember the + - + - pattern.
             
-        - f the columns (or rows) of a square matrix are linearly dependent, then the determinant of that matrix is 0.
+        - if the columns (or rows) of a square matrix are linearly dependent, then the determinant of that matrix is 0.
         This implies that one or more columns (or rows) of the matrix can be expressed as linear combinations of the others.
         - Zero Volume: In the context of linear transformations, the determinant represents the scaling factor of the volume of the parallelotope (generalization of parallelepiped)
         formed by applying the linear transformation to a unit cube. When det(A) = 0, it means that the transformation collapses the volume to zero, indicating that the transformation is not invertible.
@@ -241,37 +241,129 @@ class Matrix:
         - Its symbol is the capital letter I.
     """
 
+    # def inverse(self):
+    #     len_row, len_col = self.shape()
+    #     determinant = self.determinant()
+    #     if (len_row != len_col):
+    #         raise ValueError("Matrix must be square to calculate inverse.")
+    #     elif (len_row == 1):
+    #         return Matrix([[1.0 / determinant]])
+    #     elif determinant == 0:
+    #         raise ValueError("Matrix is singular and cannot be inverted.")
+    #     elif (len_row == 2):
+    #         new_matrix = Matrix([
+    #             [self.data[1][1], -self.data[0][1]],
+    #             [-self.data[1][0], self.data[0][0]]
+    #         ])
+    #         new_matrix.scl(1.0 / determinant)
+    #         return new_matrix
+    #     else:
+    #         # Initialize a matrix to store the cofactors
+    #         cofactor_matrix = Matrix([[(self.cofactor(i, j)) for j in range(len_col)] for i in range(len_row)])
+    #         # Calculate the adjugate matrix by transposing the cofactor matrix
+    #         adjugate_matrix = cofactor_matrix.transpose()
+    #         # Scale the adjugate matrix by the reciprocal of the determinant
+    #         adjugate_matrix.scl(1.0 / determinant)
+    #         # return adjugate_matrix
+    #         return adjugate_matrix
+    
+    # def inverse(self):
+    #     len_row, len_col = self.shape()
+    #     determinant = self.determinant()
+        
+    #     if len_row != len_col:
+    #         raise ValueError("Matrix must be square to calculate inverse.")
+    #     elif determinant == 0:
+    #         raise ValueError("Matrix is singular and cannot be inverted.")
+    #     elif len_row == 1:
+    #         return Matrix([[1.0 / determinant]])
+        
+    #     # Create an augmented matrix [self | I]
+    #     augmented_matrix = Matrix([[self.data[i][j] if j < len_col else 1.0 if j - len_col == i else 0.0 for j in range(2 * len_col)] for i in range(len_row)])
+        
+    #     # Perform Gauss-Jordan elimination with partial pivoting
+    #     for i in range(len_row):
+    #         # Find the pivot element (maximum absolute value) in the current column
+    #         max_row = i
+    #         for j in range(i + 1, len_row):
+    #             if ft_abs(augmented_matrix.data[j][i]) > ft_abs(augmented_matrix.data[max_row][i]):
+    #                 max_row = j
+            
+    #         # Swap rows to move the pivot element to the current row
+    #         augmented_matrix.swap_rows(i, max_row)
+            
+    #         # Make the pivot element 1
+    #         pivot_element = augmented_matrix.data[i][i]
+    #         for j in range(i, 2 * len_col):
+    #             augmented_matrix.data[i][j] /= pivot_element
+            
+    #         # Eliminate other rows
+    #         for j in range(len_row):
+    #             if j != i:
+    #                 factor = augmented_matrix.data[j][i]
+    #                 for k in range(i, 2 * len_col):
+    #                     augmented_matrix.data[j][k] -= factor * augmented_matrix.data[i][k]
+        
+    #     # Extract the inverse matrix from the augmented matrix
+    #     inverse_matrix_data = [[augmented_matrix.data[i][j] for j in range(len_col, 2 * len_col)] for i in range(len_row)]
+        
+    #     return Matrix(inverse_matrix_data)
+    
+    # def cofactor(self, row, col):
+    #     # Calculate the cofactor of an element at row and col
+    #     submatrix = self.submatrix(row, col)
+    #     sign = (-1) ** (row + col)
+    #     return sign * submatrix.determinant()
+    
+    """
+        Gauss-Jordan elimination method
+        https://people.math.carleton.ca/~kcheung/math/books/manuel-AL/fr/elimination-de-gauss-jordan.html
+    """
     def inverse(self):
         len_row, len_col = self.shape()
         determinant = self.determinant()
-        if (len_row != len_col):
+        
+        if len_row != len_col:
             raise ValueError("Matrix must be square to calculate inverse.")
-        elif (len_row == 1):
+        elif len_row == 1:
+            if determinant == 0:
+                raise ValueError("Matrix is singular and cannot be inverted.")
             return Matrix([[1.0 / determinant]])
         elif determinant == 0:
             raise ValueError("Matrix is singular and cannot be inverted.")
-        elif (len_row == 2):
-            new_matrix = Matrix([
-                [self.data[1][1], -self.data[0][1]],
-                [-self.data[1][0], self.data[0][0]]
-            ])
-            new_matrix.scl(1.0 / determinant)
-            return new_matrix
-        else:
-            # Initialize a matrix to store the cofactors
-            cofactor_matrix = Matrix([[(self.cofactor(i, j)) for j in range(len_col)] for i in range(len_row)])
-            # Calculate the adjugate matrix by transposing the cofactor matrix
-            adjugate_matrix = cofactor_matrix.transpose()
-            # Scale the adjugate matrix by the reciprocal of the determinant
-            adjugate_matrix.scl(1.0 / determinant)
-            # return adjugate_matrix
-            return adjugate_matrix
-
-    def cofactor(self, row, col):
-        # Calculate the cofactor of an element at row and col
-        submatrix = self.submatrix(row, col)
-        sign = (-1) ** (row + col)
-        return sign * submatrix.determinant()
+        
+        # Create an identity matrix of the same size as self
+        identity_matrix = Matrix([[1.0 if i == j else 0.0 for j in range(len_col)] for i in range(len_row)])
+        
+        # Create a copy of the original matrix
+        augmented_matrix = Matrix([row[:] for row in self.data])
+        
+        # Perform Gauss-Jordan elimination to transform the original matrix into its inverse
+        for col in range(len_col):
+            # Find the pivot element
+            pivot_row = col
+            for i in range(col, len_row):
+                if ft_abs(augmented_matrix.data[i][col]) > ft_abs(augmented_matrix.data[pivot_row][col]):
+                    pivot_row = i
+            
+            # Swap rows to make the pivot element the leading 1
+            augmented_matrix.swap_rows(pivot_row, col)
+            identity_matrix.swap_rows(pivot_row, col)
+            
+            # Make the pivot element 1 and adjust the corresponding row in the identity matrix
+            pivot_element = augmented_matrix.data[col][col]
+            augmented_matrix.data[col] = [x / pivot_element for x in augmented_matrix.data[col]]
+            identity_matrix.data[col] = [x / pivot_element for x in identity_matrix.data[col]]
+            
+            # Eliminate other rows
+            # This step ensures that all elements above and below the pivot element become zero.
+            for i in range(len_row):
+                if i != col:
+                    factor = augmented_matrix.data[i][col]
+                    augmented_matrix.data[i] = [x - factor * y for x, y in zip(augmented_matrix.data[i], augmented_matrix.data[col])]
+                    identity_matrix.data[i] = [x - factor * y for x, y in zip(identity_matrix.data[i], identity_matrix.data[col])]
+        
+        return identity_matrix
 
     """
         https://www.mathsisfun.com/algebra/matrix-rank.html

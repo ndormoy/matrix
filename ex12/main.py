@@ -49,7 +49,7 @@ def main():
 
     colorize_text("\nHas to fail : \n", "red")
     try:
-        colorize_text("inverse of [[2.0, 0.0, 0.0, 1.1],[0.0, 2.0, 0.0, 2.3],[0.0, 0.0, 2.0, 4.1]]")
+        colorize_text("inverse of [[2.0, 0.0, 0.0, 1.1],[0.0, 2.0, 0.0, 2.3],[0.0, 0.0, 2.0, 4.1]]", "yellow")
         u4 = Matrix([
             [2.0, 0.0, 0.0, 1.1],
             [0.0, 2.0, 0.0, 2.3],
@@ -62,7 +62,7 @@ def main():
 
     colorize_text("\nHas to fail : \n", "red")
     try:
-        colorize_text("inverse of [[1.0, 2.0, 3.0],[2.0, 4.0, 6.0],[3.0, 6.0, 9.0]]")
+        colorize_text("inverse of [[1.0, 2.0, 3.0],[2.0, 4.0, 6.0],[3.0, 6.0, 9.0]]", "yellow")
         u5 = Matrix([
             [1.0, 2.0, 3.0],
             [2.0, 4.0, 6.0],
