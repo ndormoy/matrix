@@ -165,7 +165,7 @@ The trace of a square matrix is the sum of its diagonal entries.
 <span style="color: green">
 
 ## IX) **Transpose**
-**
+
 </span>
 
 The transpose of a matrix is a new matrix whose rows are the columns of the original.
@@ -266,6 +266,8 @@ The Identity matrix ot 'I', by definition, is a special square matrix with ones 
 
 </span>
 
+```
 The rank of a matrix is the number of linearly independent rows or columns in the matrix.  
+```
 
 ![img](elements/rank.png)
