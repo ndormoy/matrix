@@ -266,55 +266,7 @@ class Matrix:
     #         adjugate_matrix.scl(1.0 / determinant)
     #         # return adjugate_matrix
     #         return adjugate_matrix
-    
-    # def inverse(self):
-    #     len_row, len_col = self.shape()
-    #     determinant = self.determinant()
-        
-    #     if len_row != len_col:
-    #         raise ValueError("Matrix must be square to calculate inverse.")
-    #     elif determinant == 0:
-    #         raise ValueError("Matrix is singular and cannot be inverted.")
-    #     elif len_row == 1:
-    #         return Matrix([[1.0 / determinant]])
-        
-    #     # Create an augmented matrix [self | I]
-    #     augmented_matrix = Matrix([[self.data[i][j] if j < len_col else 1.0 if j - len_col == i else 0.0 for j in range(2 * len_col)] for i in range(len_row)])
-        
-    #     # Perform Gauss-Jordan elimination with partial pivoting
-    #     for i in range(len_row):
-    #         # Find the pivot element (maximum absolute value) in the current column
-    #         max_row = i
-    #         for j in range(i + 1, len_row):
-    #             if ft_abs(augmented_matrix.data[j][i]) > ft_abs(augmented_matrix.data[max_row][i]):
-    #                 max_row = j
-            
-    #         # Swap rows to move the pivot element to the current row
-    #         augmented_matrix.swap_rows(i, max_row)
-            
-    #         # Make the pivot element 1
-    #         pivot_element = augmented_matrix.data[i][i]
-    #         for j in range(i, 2 * len_col):
-    #             augmented_matrix.data[i][j] /= pivot_element
-            
-    #         # Eliminate other rows
-    #         for j in range(len_row):
-    #             if j != i:
-    #                 factor = augmented_matrix.data[j][i]
-    #                 for k in range(i, 2 * len_col):
-    #                     augmented_matrix.data[j][k] -= factor * augmented_matrix.data[i][k]
-        
-    #     # Extract the inverse matrix from the augmented matrix
-    #     inverse_matrix_data = [[augmented_matrix.data[i][j] for j in range(len_col, 2 * len_col)] for i in range(len_row)]
-        
-    #     return Matrix(inverse_matrix_data)
-    
-    # def cofactor(self, row, col):
-    #     # Calculate the cofactor of an element at row and col
-    #     submatrix = self.submatrix(row, col)
-    #     sign = (-1) ** (row + col)
-    #     return sign * submatrix.determinant()
-    
+
     """
         Gauss-Jordan elimination method
         https://people.math.carleton.ca/~kcheung/math/books/manuel-AL/fr/elimination-de-gauss-jordan.html
