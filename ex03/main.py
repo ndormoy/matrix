@@ -35,14 +35,6 @@ def main():
         print(u.dot(v))
     except Exception as e:
         print(e)
-        
-    colorize_text("\nHas to fail : ", "red")
-    try:
-        u = Vector([0, 0])
-        v = Vector([1.0, 1])
-        print(u.dot(v))
-    except Exception as e:
-        print(e)
 
     colorize_text("\n--------------------------------\n", "purple")
     colorize_text("CORRECTION\n", "blue")

@@ -79,7 +79,7 @@ def main():
         print(f"{u6.row_echelon()} \nexpected :\n[[1, 0], [0, 1]]\n")
         
         colorize_text("row echelon of [[4, 2], [2, 1]]", "yellow")
-        u7 = Matrix([[4, 2], [2, 4]])
+        u7 = Matrix([[4, 2], [2, 1]])
         print(f"{u7.row_echelon()} \nexpected :\n[[1, 0.5], [0, 0]]\n")
         
         colorize_text("row echelon of [[-7, 2], [4, 8]]", "yellow")

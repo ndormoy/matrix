@@ -50,13 +50,6 @@ def main():
         print(result3)
     except ValueError as e:
         print(e)
-    colorize_text("\nHas to fail : ", "red")
-    try:
-        v3 = Vector([1.0, 2.0, 3.0, 4.0])
-        result3 = linear_combination([v1, v2], coefficients1)
-        print(result3)
-    except ValueError as e:
-        print(e)
 
     colorize_text("\n--------------------------------\n", "purple")
     colorize_text("CORRECTION\n", "blue")
